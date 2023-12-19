@@ -22,7 +22,7 @@ jobs:
     submodules: true
   - task: AzureStaticWebApp@0
     inputs:
-      app_location: '/'
+      app_location: '/public'
       output_location: '/public'
       skip_app_build: true
       azure_static_web_apps_api_token: '$(AZURE_STATIC_WEB_APPS_API_TOKEN_BRAVE_FIELD_09FAE9C0F)'
