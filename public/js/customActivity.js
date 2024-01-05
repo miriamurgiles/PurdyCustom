@@ -92,13 +92,14 @@ define([
     }
 
     function save() {
+        var templateId = $('#plantilla_what').val();
 
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
-            "phoneNumber": "{{Contact.Attribute.OPORTUNIDAD.PersonMobilePhone}}",
-            "emailAddress": "{{InteractionDefaults.Email}}",
-            "clientName": "{{Contact.Attribute.OPORTUNIDAD.Nombre}}",
-            "templateId": "X1Mva7L7EVd06JeaeF8A"
+            "phoneNumber": "{{Contact.Attribute.DATA_PRUEBA_NUEVOS_USER.Telefono_celular}}",
+            "emailAddress": "{{InteractionDefaults.email}}",
+            "clientName": "{{Contact.Attribute.DATA_PRUEBA_NUEVOS_USER.Nombre_completo}}",
+            "templateId": templateId
         }];
 
         payload['metaData'].isConfigured = true;
