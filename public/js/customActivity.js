@@ -19,10 +19,10 @@ define([
     connection.on('requestedSchema', function (data) {
         // save schema
         console.log('*** Schema ***', JSON.stringify(data['data_for_user_whats']));
-    });
+     });
 
     connection.on('clickedNext', save);
-
+   
     function onRender() {
         // JB will respond the first time 'ready' is called with 'initActivity'
         connection.trigger('ready');
@@ -31,22 +31,22 @@ define([
         connection.trigger('requestEndpoints');
         connection.trigger('requestInteraction');
         connection.trigger('requestTriggerEventDefinition');
-        connection.trigger('requestDataSources');
+        connection.trigger('requestDataSources');  
         connection.trigger('requestSchema');
 
     }
 
-    function onRequestedDataSources(dataSources) {
+    function onRequestedDataSources(dataSources){
         console.log('*** requestedDataSources ***');
         console.log(dataSources);
     }
 
-    function onRequestedInteraction(interaction) {
+    function onRequestedInteraction (interaction) {    
         console.log('*** requestedInteraction ***');
         console.log(interaction);
-    }
+     }
 
-    function onRequestedTriggerEventDefinition(eventDefinitionModel) {
+     function onRequestedTriggerEventDefinition(eventDefinitionModel) {
         console.log('*** requestedTriggerEventDefinition ***');
         console.log(eventDefinitionModel);
     }
@@ -56,7 +56,7 @@ define([
         if (data) {
             payload = data;
         }
-
+        
         var hasInArguments = Boolean(
             payload['arguments'] &&
             payload['arguments'].execute &&
@@ -70,8 +70,8 @@ define([
 
         $.each(inArguments, function (index, inArgument) {
             $.each(inArgument, function (key, val) {
-
-
+                
+              
             });
         });
 
@@ -92,6 +92,7 @@ define([
     }
 
     function save() {
+
         var templateId = $('#plantilla_what').val();
 
         payload['arguments'].execute.inArguments = [{
@@ -101,7 +102,7 @@ define([
             "clientName": "{{Contact.Attribute.DATA_PRUEBA_NUEVOS_USER.Nombre_completo}}",
             "templateId": templateId
         }];
-
+        
         payload['metaData'].isConfigured = true;
 
         console.log(payload);
