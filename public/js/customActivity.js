@@ -96,9 +96,9 @@ define([
 
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
-            "phoneNumber": "{{Contact.Attribute.OPORTUNIDAD_NUEVOS_LEXUS_B2C.PersonMobilePhone}}",
+            "phoneNumber": "{{Contact.Attribute.DATA_PRUEBA_NUEVOS_USER.Telefono_celular}}",
             "emailAddress": "{{InteractionDefaults.email}}",
-            "clientName": "{{Contact.Attribute.OPORTUNIDAD_NUEVOS_LEXUS_B2C.Nombre}}",
+            "clientName": "{{Contact.Attribute.DATA_PRUEBA_NUEVOS_USER.Nombre_completo}}",
             "templateId": templateId
         }];
 
