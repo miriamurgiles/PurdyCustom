@@ -1,0 +1,73 @@
+# Node.js Express Web App to Linux on Azure
+# Build a Node.js Express app and deploy it to Azure as a Linux web app.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+pr:
+  branches:
+    include:
+      - master.deploy  
+trigger:
+  branches:
+    include:
+      - master.deploy
+
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: 'ubuntu-latest'
+
+    steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '18.17.1'
+      displayName: 'Install Node.js'
+
+    - script: |
+        npm install
+        npm run build --if-present
+        npm run test --if-present
+      displayName: 'npm install, build and test'
+
+    - task: ArchiveFiles@2
+      displayName: 'Archive files'
+      inputs:
+        rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+        includeRootFolder: false
+        archiveType: zip
+        archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+        replaceExistingArchive: true
+
+    - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+      artifact: drop
+
+- stage: Deploy
+  displayName: Deploy stage
+  dependsOn: Build
+  condition: succeeded()
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    environment: 'sendwhatsapp'
+    pool:
+      vmImage: 'ubuntu-latest'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: AzureWebApp@1
+            displayName: 'Azure Web App Deploy: sendwhatsapp'
+            inputs:
+              azureSubscription: 'Purdy Motor  CSP (5e960269-a0bb-4c3b-8f52-3f480969bfe0)'
+              appType: 'webAppLinux'
+              appName: 'sendwhatsapp'
+              deployToSlotOrASE: true
+              resourceGroupName: 'gpmdigital-pro-rg'
+              slotName: 'staging'
+              package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
+              runtimeStack: 'NODE|18-lts'
+              startUpCommand: 'npm run start'
