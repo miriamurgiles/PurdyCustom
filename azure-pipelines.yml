@@ -65,6 +65,9 @@ stages:
               azureSubscription: 'Purdy Motor  CSP (5e960269-a0bb-4c3b-8f52-3f480969bfe0)'
               appType: 'webAppLinux'
               appName: 'sendwhatsapp'
+              deployToSlotOrASE: true
+              resourceGroupName: 'gpmdigital-pro-rg'
+              slotName: 'production'
               package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
               runtimeStack: 'NODE|18-lts'
               startUpCommand: 'npm run start'
