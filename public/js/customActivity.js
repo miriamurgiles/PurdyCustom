@@ -98,18 +98,18 @@ define([
         if(templateDE == 'OPORTUNIDAD_LEXUS_B2C' ){
             payload['arguments'].execute.inArguments = [{
                 "tokens": authTokens,
-                "phoneNumber": "{{Contact.Attribute.OPORTUNIDAD_LEXUS_B2C.PersonMobilePhone}}",
+                "phoneNumber": "506"+"{{Contact.Attribute.OPORTUNIDAD_LEXUS_B2C.PersonMobilePhone}}",
                 "emailAddress": "{{InteractionDefaults.email}}",
                 "clientName": "{{Contact.Attribute.OPORTUNIDAD_LEXUS_B2C.Nombre}}",
                 "templateId": templateId
             }];
         }
-        if(templateDE == 'DATA_PRUEBA_NUEVOS_USER'){
+        if(templateDE == 'LEADS_NUEVOS_B2C'){
             payload['arguments'].execute.inArguments = [{
                 "tokens": authTokens,
-                "phoneNumber": "{{Contact.Attribute.DATA_PRUEBA_NUEVOS_USER.Telefono_celular}}",
+                "phoneNumber": "506"+"{{Contact.Attribute.LEADS_NUEVOS_B2C.Telefono}}",
                 "emailAddress": "{{InteractionDefaults.email}}",
-                "clientName": "{{Contact.Attribute.DATA_PRUEBA_NUEVOS_USER.Nombre_completo}}",
+                "clientName": "{{Contact.Attribute.LEADS_NUEVOS_B2C.Primer_Nombre}}",
                 "templateId": templateId
             }];
         }
