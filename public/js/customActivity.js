@@ -113,7 +113,16 @@ define([
                 "templateId": templateId
             }];
         }
-
+        
+        if(templateDE == 'DATOS_PARA_PROBAR'){
+            payload['arguments'].execute.inArguments = [{
+                "tokens": authTokens,
+                "phoneNumber": "506"+"{{Contact.Attribute.DATOS_PARA_PROBAR.Phone}}",
+                "emailAddress": "{{InteractionDefaults.email}}",
+                "clientName": "{{Contact.Attribute.DATOS_PARA_PROBAR.name}}",
+                "templateId": templateId
+            }];
+        }
         
         
         payload['metaData'].isConfigured = true;
