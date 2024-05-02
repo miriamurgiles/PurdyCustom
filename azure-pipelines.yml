@@ -62,7 +62,7 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Azure Web App Deploy: sendwhatsapp'
             inputs:
-              azureSubscription: 'Purdy Motor  CSP (5e960269-a0bb-4c3b-8f52-3f480969bfe0)'
+              azureSubscription: 'Grupo Purdy Digital'
               appType: 'webAppLinux'
               appName: 'sendwhatsapp'
               deployToSlotOrASE: true
