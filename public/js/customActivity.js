@@ -123,6 +123,17 @@ define([
                 "templateId": templateId
             }];
         }
+
+        if(templateDE == 'DATOS_PARA_PMP'){
+            payload['arguments'].execute.inArguments = [{
+                "tokens": authTokens,
+                "phoneNumber": "506"+"{{Contact.Attribute.Nueva trayectoria - 16 de mayo de 2024 0938 - 2024-05-16T100846363.Opportunity:Account:Telefono_celular__c}}",
+                "emailAddress": "{{InteractionDefaults.email}}",
+                "clientName": "{{Contact.Attribute.Nueva trayectoria - 16 de mayo de 2024 0938 - 2024-05-16T100846363.Opportunity:Account:FirstName}}",
+                "templateId": templateId
+            }];
+
+        }
         
         
         payload['metaData'].isConfigured = true;
