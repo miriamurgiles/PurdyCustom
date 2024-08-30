@@ -134,6 +134,17 @@ define([
             }];
 
         }
+
+        if(templateDE == 'Journey de seguimiento a oportunidades en proceso Whatsapp - 2023-12-04T171510349'){
+            payload['arguments'].execute.inArguments = [{
+                "tokens": authTokens,
+                "phoneNumber": "506"+"{{Contact.Attribute.Journey de seguimiento a oportunidades en proceso Whatsapp - 2023-12-04T171510349.Opportunity:Account:PersonMobilePhone}}",
+                "emailAddress": "{{InteractionDefaults.email}}",
+                "clientName": "{{Contact.Attribute.Journey de seguimiento a oportunidades en proceso Whatsapp - 2023-12-04T171510349.Opportunity:Account:Name}}",
+                "templateId": templateId
+            }];
+
+        }
         
         
         payload['metaData'].isConfigured = true;
