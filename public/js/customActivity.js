@@ -145,6 +145,17 @@ define([
             }];
 
         }
+
+        if(templateDE == 'LEADS XPENG 2024 _ XPENG Costa Rica 274053937'){
+            payload['arguments'].execute.inArguments = [{
+                "tokens": authTokens,
+                "phoneNumber": "506"+"{{Contact.Attribute.LEADS XPENG 2024 _ XPENG Costa Rica 274053937.Opportunity:Account:phone_number}}",
+                "emailAddress": "{{InteractionDefaults.email}}",
+                "clientName": "{{Contact.Attribute.LEADS XPENG 2024 _ XPENG Costa Rica 274053937.Opportunity:Account:full_name}}",
+                "templateId": templateId
+            }];
+
+        }
         
         
         payload['metaData'].isConfigured = true;
