@@ -90,7 +90,7 @@ exports.execute = function (req, res) {
             var decodedArgs = decoded.inArguments[0];
             console.log(decodedArgs);
             const axios = require('axios');
-            let data = JSON.stringify({
+            let data = {
               "templateId": decodedArgs.templateId,
               "phoneNumber": decodedArgs.phoneNumber,
               "clientName": decodedArgs.clientName,
@@ -99,7 +99,12 @@ exports.execute = function (req, res) {
               "params": {
                 "client_name": decodedArgs.clientName
               }
-            });
+            };
+
+            if (decodedArgs.OP) {
+              data.OP = decodedArgs.OP;
+            }  
+
             let config = {
               method: 'post',
               maxBodyLength: Infinity,
@@ -108,7 +113,7 @@ exports.execute = function (req, res) {
                 'Content-Type': 'application/json', 
                 'Authorization': 'Bearer 5b12b8d9-20b1-1b49-762d-5ca346e02445'
               },
-              data : data
+              data : JSON.stringify(data)
             };
             
             axios.request(config)

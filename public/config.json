@@ -44,22 +44,22 @@
   "configurationArguments": {
       "applicationExtensionKey": "4f75ab38-936f-48bf-b311-17d7910b0edf",
     "save": {
-      "url": "https://sndwhatsappmsg.grupopurdy.com/journeybuilder/save",
+      "url": "http://localhost:3000/journeybuilder/save",
         "verb": "POST",
       "useJwt": true
      },
      "publish": {
-      "url": "https://sndwhatsappmsg.grupopurdy.com/journeybuilder/publish",
+      "url": "https://localhost:3000/journeybuilder/publish",
          "verb": "POST",
       "useJwt": true
      },
     "stop": {
-      "url": "https://sndwhatsappmsg.grupopurdy.com/journeybuilder/stop",
+      "url": "https://localhost:3000/journeybuilder/stop",
          "verb": "POST",
       "useJwt": true
     },
     "validate": {
-      "url": "https://sndwhatsappmsg.grupopurdy.com/journeybuilder/validate",
+      "url": "https://localhost:3000/journeybuilder/validate",
       "verb": "POST",
       "useJwt": true
     }

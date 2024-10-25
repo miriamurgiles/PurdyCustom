@@ -6,8 +6,10 @@ var activity = require('./activity');
 /*
  * GET home page.
  */
+//console.log(req);
 exports.index = function(req, res){
     if( !req.session.token ) {
+        console.log("Prueba App");
         res.render( 'index', {
             title: 'Unauthenticated',
             errorMessage: 'This app may only be loaded via Salesforce Marketing Cloud',

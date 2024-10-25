@@ -141,10 +141,12 @@ define([
                 "phoneNumber": "506"+"{{Contact.Attribute.Journey de seguimiento a oportunidades en proceso Whatsapp - 2023-12-04T171510349.Opportunity:Account:PersonMobilePhone}}",
                 "emailAddress": "{{InteractionDefaults.email}}",
                 "clientName": "{{Contact.Attribute.Journey de seguimiento a oportunidades en proceso Whatsapp - 2023-12-04T171510349.Opportunity:Account:Name}}",
+                "OP": "{{Contact.Attribute.Journey de seguimiento a oportunidades en proceso Whatsapp - 2023-12-04T171510349.Opportunity:Numero_Consecutivo__c}}",
                 "templateId": templateId
             }];
 
         }
+
 
         if(templateDE == 'LEADS XPENG 2024 _ XPENG Costa Rica 274053937'){
             payload['arguments'].execute.inArguments = [{
