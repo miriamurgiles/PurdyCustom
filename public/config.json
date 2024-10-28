@@ -1,5 +1,5 @@
 {
-  "key": "4f75ab38-936f-48bf-b311-17d7910b0edf",
+  "key": "265834cc-2877-44e4-9268-69c7673f4bf8",
   "workflowApiVersion": "1.1",
   "metaData": {
       "icon": "images/icon.png",
@@ -42,7 +42,7 @@
       }
   },
   "configurationArguments": {
-      "applicationExtensionKey": "4f75ab38-936f-48bf-b311-17d7910b0edf",
+      "applicationExtensionKey": "265834cc-2877-44e4-9268-69c7673f4bf8",
     "save": {
       "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/journeybuilder/save",
         "verb": "POST",
