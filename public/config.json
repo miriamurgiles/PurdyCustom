@@ -32,7 +32,7 @@
           }
          ],
         "outArguments": [],
-        "url": "https://sndwhatsappmsg.grupopurdy.com/journeybuilder/execute",
+        "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/journeybuilder/execute",
          "verb": "POST",
           "body": "",
           "header": "",
