@@ -44,7 +44,7 @@
   "configurationArguments": {
       "applicationExtensionKey": "4f75ab38-936f-48bf-b311-17d7910b0edf",
     "save": {
-      "url": "http://localhost:3000/journeybuilder/save",
+      "url": "https://localhost:3000/journeybuilder/save",
         "verb": "POST",
       "useJwt": true
      },
