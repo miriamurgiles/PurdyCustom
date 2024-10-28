@@ -44,22 +44,22 @@
   "configurationArguments": {
       "applicationExtensionKey": "4f75ab38-936f-48bf-b311-17d7910b0edf",
     "save": {
-      "url": "https://localhost:3000/journeybuilder/save",
+      "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/journeybuilder/save",
         "verb": "POST",
       "useJwt": true
      },
      "publish": {
-      "url": "https://localhost:3000/journeybuilder/publish",
+      "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/journeybuilder/publish",
          "verb": "POST",
       "useJwt": true
      },
     "stop": {
-      "url": "https://localhost:3000/journeybuilder/stop",
+      "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/journeybuilder/stop",
          "verb": "POST",
       "useJwt": true
     },
     "validate": {
-      "url": "https://localhost:3000/journeybuilder/validate",
+      "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/journeybuilder/validate",
       "verb": "POST",
       "useJwt": true
     }

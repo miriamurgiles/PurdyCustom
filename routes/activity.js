@@ -104,7 +104,7 @@ exports.execute = function (req, res) {
 
         // Agrega OP en params solo si tiene un valor
         if (decodedArgs.OP) {
-        data.params.OP = decodedArgs.OP;  // Aquí no necesitas agregar una coma
+        data.params.OP = decodedArgs.OP;  
         }
 
             let config = {
