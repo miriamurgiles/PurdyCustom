@@ -101,7 +101,7 @@ exports.execute = function (req, res) {
 
               }
             };
-
+            console.log("decodedArgs.clientName: "+ decodedArgs.clientName + 'templateId: '+ decodedArgs.templateId + "decodedArgs.phoneNumber: "+ decodedArgs.phoneNumber  )
         // Agrega OP en params solo si tiene un valor
         if (decodedArgs.OP) {
         data.params.OP = decodedArgs.OP;  
