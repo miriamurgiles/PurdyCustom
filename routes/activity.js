@@ -98,12 +98,14 @@ exports.execute = function (req, res) {
               "assign": false,
               "params": {
                 "client_name": decodedArgs.clientName
+
               }
             };
 
-            if (decodedArgs.OP) {
-              data.OP = decodedArgs.OP;
-            }  
+        // Agrega OP en params solo si tiene un valor
+        if (decodedArgs.OP) {
+        data.params.OP = decodedArgs.OP;  // Aquí no necesitas agregar una coma
+        }
 
             let config = {
               method: 'post',

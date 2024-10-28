@@ -146,6 +146,19 @@ define([
             }];
 
         }
+        /*Cambio MUR nueva plantilla test*/
+        if(templateDE == 'TEST FREEWAY oportunidades en proceso Whatsapp'){
+            payload['arguments'].execute.inArguments = [{
+                "tokens": authTokens,
+                "phoneNumber": "{{Contact.Attribute.TEST FREEWAY oportunidades en proceso Whatsapp.Opportunity:Account:PersonMobilePhone}}",
+                "emailAddress": "{{InteractionDefaults.email}}",
+                "clientName": "{{Contact.Attribute.TEST FREEWAY oportunidades en proceso Whatsapp.Opportunity:Account:Name}}",
+                "OP": "{{Contact.Attribute.TEST FREEWAY oportunidades en proceso Whatsapp.Opportunity:Numero_Consecutivo__c}}",
+                "templateId": templateId
+            }];
+    
+
+        }        
 
 
         if(templateDE == 'LEADS XPENG 2024 _ XPENG Costa Rica 274053937'){
