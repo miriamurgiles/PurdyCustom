@@ -159,7 +159,15 @@ define([
     
 
         }        
-
+        if(templateDE == 'DATA_PRUEBA_NUEVOS_USER'){
+            payload['arguments'].execute.inArguments = [{
+                "tokens": authTokens,
+                "phoneNumber": "{{Contact.Attribute.DATA_PRUEBA_NUEVOS_USER.Telefono_celular}}",
+                "emailAddress": "{{InteractionDefaults.Email}}",
+                "clientName": "{{Contact.Attribute.DATA_PRUEBA_NUEVOS_USER.Nombre_completo}}",
+                "templateId": templateId
+            }];
+        }
 
         if(templateDE == 'LEADS XPENG 2024 _ XPENG Costa Rica 274053937'){
             payload['arguments'].execute.inArguments = [{
