@@ -147,17 +147,15 @@ define([
 
         }
         /*Cambio MUR nueva plantilla test*/
-        if(templateDE == 'TEST FREEWAY oportunidades en proceso Whatsapp'){
+        if(templateDE == 'TEST_FREEWAY_oportunidades_en_proceso_Whatsapp'){
             payload['arguments'].execute.inArguments = [{
                 "tokens": authTokens,
-                "phoneNumber": "{{Contact.Attribute.TEST FREEWAY oportunidades en proceso Whatsapp.Opportunity:Account:PersonMobilePhone}}",
+                "phoneNumber": "{{Contact.Attribute.TEST_FREEWAY_oportunidades_en_proceso_Whatsapp.Opportunity:Account:PersonMobilePhone}}",
                 "emailAddress": "{{InteractionDefaults.email}}",
-                "clientName": "{{Contact.Attribute.TEST FREEWAY oportunidades en proceso Whatsapp.Opportunity:Account:Name}}",
-                "OP": "{{Contact.Attribute.TEST FREEWAY oportunidades en proceso Whatsapp.Opportunity:Numero_Consecutivo__c}}",
+                "clientName": "{{Contact.Attribute.TEST_FREEWAY_oportunidades_en_proceso_Whatsapp.Opportunity:Account:Name}}",
+                "numCon": "{{Contact.Attribute.TEST_FREEWAY_oportunidades_en_proceso_Whatsapp.Opportunity:Numero_Consecutivo__c}}",
                 "templateId": templateId
             }];
-    
-
         }        
         if(templateDE == 'DATA_PRUEBA_NUEVOS_USER'){
             payload['arguments'].execute.inArguments = [{
