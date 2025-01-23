@@ -90,7 +90,7 @@ exports.execute = function (req, res) {
             var decodedArgs = decoded.inArguments[0];
             console.log(decodedArgs);
             const axios = require('axios');
-            let data = {
+            let data = JSON.stringify({
               "templateId": decodedArgs.templateId,
               "phoneNumber": decodedArgs.phoneNumber,
               "clientName": decodedArgs.clientName,
@@ -98,15 +98,8 @@ exports.execute = function (req, res) {
               "assign": false,
               "params": {
                 "client_name": decodedArgs.clientName
-
               }
-            };
-            console.log("decodedArgs.clientName: "+ decodedArgs.clientName + 'templateId: '+ decodedArgs.templateId + "decodedArgs.phoneNumber: "+ decodedArgs.phoneNumber  )
-        // Agrega OP en params solo si tiene un valor
-        if (decodedArgs.numCon) {
-        data.params.numCon = decodedArgs.numCon;  
-        }
-
+            });
             let config = {
               method: 'post',
               maxBodyLength: Infinity,
@@ -115,7 +108,7 @@ exports.execute = function (req, res) {
                 'Content-Type': 'application/json', 
                 'Authorization': 'Bearer 5b12b8d9-20b1-1b49-762d-5ca346e02445'
               },
-              data : JSON.stringify(data)
+              data : data
             };
             
             axios.request(config)

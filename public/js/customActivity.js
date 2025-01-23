@@ -141,30 +141,9 @@ define([
                 "phoneNumber": "506"+"{{Contact.Attribute.Journey de seguimiento a oportunidades en proceso Whatsapp - 2023-12-04T171510349.Opportunity:Account:PersonMobilePhone}}",
                 "emailAddress": "{{InteractionDefaults.email}}",
                 "clientName": "{{Contact.Attribute.Journey de seguimiento a oportunidades en proceso Whatsapp - 2023-12-04T171510349.Opportunity:Account:Name}}",
-                "OP": "{{Contact.Attribute.Journey de seguimiento a oportunidades en proceso Whatsapp - 2023-12-04T171510349.Opportunity:Numero_Consecutivo__c}}",
                 "templateId": templateId
             }];
 
-        }
-        /*Cambio MUR nueva plantilla test*/
-        if(templateDE == 'TEST_FREEWAY_oportunidades_en_proceso_Whatsapp'){
-            payload['arguments'].execute.inArguments = [{
-                "tokens": authTokens,
-                "phoneNumber": "{{Contact.Attribute.TEST_FREEWAY_oportunidades_en_proceso_Whatsapp.Opportunity:Account:PersonMobilePhone}}",
-                "emailAddress": "{{InteractionDefaults.email}}",
-                "clientName": "{{Contact.Attribute.TEST_FREEWAY_oportunidades_en_proceso_Whatsapp.Opportunity:Account:Name}}",
-                "numCon": "{{Contact.Attribute.TEST_FREEWAY_oportunidades_en_proceso_Whatsapp.Opportunity:Numero_Consecutivo__c}}",
-                "templateId": templateId
-            }];
-        }        
-        if(templateDE == 'DATA_PRUEBA_NUEVOS_USER'){
-            payload['arguments'].execute.inArguments = [{
-                "tokens": authTokens,
-                "phoneNumber": "{{Contact.Attribute.DATA_PRUEBA_NUEVOS_USER.Telefono_celular}}",
-                "emailAddress": "{{InteractionDefaults.Email}}",
-                "clientName": "{{Contact.Attribute.DATA_PRUEBA_NUEVOS_USER.Nombre_completo}}",
-                "templateId": templateId
-            }];
         }
 
         if(templateDE == 'LEADS XPENG 2024 _ XPENG Costa Rica 274053937'){
@@ -173,6 +152,17 @@ define([
                 "phoneNumber": "506"+"{{Contact.Attribute.LEADS XPENG 2024 _ XPENG Costa Rica 274053937.Opportunity:Account:phone_number}}",
                 "emailAddress": "{{InteractionDefaults.email}}",
                 "clientName": "{{Contact.Attribute.LEADS XPENG 2024 _ XPENG Costa Rica 274053937.Opportunity:Account:full_name}}",
+                "templateId": templateId
+            }];
+
+        }
+
+        if(templateDE == 'GP_Oportunidades_2024'){
+            payload['arguments'].execute.inArguments = [{
+                "tokens": authTokens,
+                "phoneNumber": "506"+"{{Contact.Attribute.GP_Oportunidades_2024.Cliente personal:Móvil}}",
+                "emailAddress": "{{InteractionDefaults.email}}",
+                "clientName": "{{Contact.Attribute.GP_Oportunidades_2024.Nombre del cliente}}",
                 "templateId": templateId
             }];
 
