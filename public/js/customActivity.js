@@ -167,6 +167,16 @@ define([
             }];
 
         }
+
+        if(templateDE == 'DATA_PRUEBA_NUEVOS_USER'){
+            payload['arguments'].execute.inArguments = [{
+                "tokens": authTokens,
+                "phoneNumber": "{{Contact.Attribute.DATA_PRUEBA_NUEVOS_USER.Telefono_celular}}",
+                "emailAddress": "{{InteractionDefaults.Email}}",
+                "clientName": "{{Contact.Attribute.DATA_PRUEBA_NUEVOS_USER.Nombre_completo}}",
+                "templateId": templateId
+            }];
+        }        
         
         
         payload['metaData'].isConfigured = true;
