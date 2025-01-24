@@ -178,6 +178,17 @@ define([
             }];
         }        
         
+                /*Cambio MUR nueva plantilla test*/
+                if(templateDE == 'TEST_FREEWAY_oportunidades_en_proceso_Whatsapp'){
+                    payload['arguments'].execute.inArguments = [{
+                        "tokens": authTokens,
+                        "phoneNumber": "{{Contact.Attribute.TEST_FREEWAY_oportunidades_en_proceso_Whatsapp.Opportunity:Account:PersonMobilePhone}}",
+                        "emailAddress": "{{InteractionDefaults.email}}",
+                        "clientName": "{{Contact.Attribute.TEST_FREEWAY_oportunidades_en_proceso_Whatsapp.Opportunity:Account:Name}}",
+                        "Enlace":"https://cloud.mkcloud.grupopurdy.com/Control_de_Calidad?numCon=" + "{{Contact.Attribute.TEST_FREEWAY_oportunidades_en_proceso_Whatsapp.Opportunity:Numero_Consecutivo__c}}",
+                        "templateId": templateId
+                    }];
+                }  
         
         payload['metaData'].isConfigured = true;
 

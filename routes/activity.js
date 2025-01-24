@@ -90,7 +90,7 @@ exports.execute = function (req, res) {
             var decodedArgs = decoded.inArguments[0];
             console.log(decodedArgs);
             const axios = require('axios');
-            let data = JSON.stringify({
+            let data = { //Mur
               "templateId": decodedArgs.templateId,
               "phoneNumber": decodedArgs.phoneNumber,
               "clientName": decodedArgs.clientName,
@@ -99,7 +99,15 @@ exports.execute = function (req, res) {
               "params": {
                 "full_name": decodedArgs.clientName
               }
-            });
+            };
+
+            // Agrega `Enlace` en params solo si tiene un valor
+              if (decodedArgs.Enlace) {
+                data.params.Enlace = decodedArgs.Enlace;
+            }
+
+            data: JSON.stringify(data)  //Mur
+
             let config = {
               method: 'post',
               maxBodyLength: Infinity,
