@@ -190,6 +190,7 @@ define([
                         "templateId": templateId
                     }];
                 }  
+                
         
         payload['metaData'].isConfigured = true;
 
