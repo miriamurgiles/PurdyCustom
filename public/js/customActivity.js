@@ -186,7 +186,7 @@ define([
                         "phoneNumber": "{{Contact.Attribute.TEST_FREEWAY_oportunidades_en_proceso_Whatsapp.Phone}}",
                         "emailAddress": "{{InteractionDefaults.email}}",
                         "clientName": "{{Contact.Attribute.TEST_FREEWAY_oportunidades_en_proceso_Whatsapp.Name}}",
-                        "Enlace":"https://cloud.mkcloud.grupopurdy.com/Control_de_Calidad?numCon=" + "{{Contact.Attribute.TEST_FREEWAY_oportunidades_en_proceso_Whatsapp.Opportunity:Numero_Consecutivo__c}}",
+                        "Enlace":"https://cloud.mkcloud.grupopurdy.com/Control_de_Calidad?numCon=" + "{{Contact.Attribute.TEST_FREEWAY_oportunidades_en_proceso_Whatsapp.[Opportunity:Numero_Consecutivo__c]}}",
                         "templateId": templateId
                     }];
                 }  
