@@ -97,7 +97,7 @@ exports.execute = function (req, res) {
               "groupName": "Purdy Citas",
               "assign": false,
               "params": {
-                "full_name": decodedArgs.clientName
+                "client_name": decodedArgs.clientName
               }
             };
 
