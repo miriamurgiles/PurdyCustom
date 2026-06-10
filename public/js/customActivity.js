@@ -267,7 +267,7 @@ define([
   if (templateDE == 'Pruebas Faw') {
     payload['arguments'].execute.inArguments = [{
         "tokens": authTokens,
-        "phoneNumber": '{{Contact.Attribute.Pruebas Faw.phone_number}}',
+           "phoneNumber": "{{Contact.Attribute.Pruebas Faw.phone_number}}",
         "emailAddress": "{{InteractionDefaults.email}}",
         "clientName": "{{Contact.Attribute.Pruebas Faw.full_name}}",
         "templateId": templateId
