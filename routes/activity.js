@@ -1,14 +1,14 @@
 'use strict';
 var util = require('util');
-
+ 
 // Deps
 const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
 var util = require('util');
 var http = require('https');
-
+ 
 exports.logExecuteData = [];
-
+ 
 function logData(req) {
     exports.logExecuteData.push({
         body: req.body,
@@ -47,7 +47,7 @@ function logData(req) {
     console.log("secure: " + req.secure);
     console.log("originalUrl: " + req.originalUrl);
 }
-
+ 
 /*
  * POST Handler for / route of Activity (this is the edit route).
  */
@@ -57,7 +57,7 @@ exports.edit = function (req, res) {
     logData(req);
     res.send(200, 'Edit');
 };
-
+ 
 /*
  * POST Handler for /save/ route of Activity.
  */
@@ -67,15 +67,15 @@ exports.save = function (req, res) {
     logData(req);
     res.send(200, 'Save');
 };
-
+ 
 /*
  * POST Handler for /execute/ route of Activity.
  */
 exports.execute = function (req, res) {
-
+ 
     // example on how to decode JWT
     JWT(req.body, process.env.jwtSecret, (err, decoded) => {
-
+ 
         // verification error -> unauthorized request
         if (err) {
             console.error(err);
@@ -83,14 +83,14 @@ exports.execute = function (req, res) {
             console.error(req.body.inArguments)
             return res.status(401).end();
         }
-
+ 
         if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
-            
+           
             // decoded in arguments
             var decodedArgs = decoded.inArguments[0];
             console.log(decodedArgs);
             const axios = require('axios');
-            let data = { //Mur
+            let data = { //Cambios
               "templateId": decodedArgs.templateId,
               "phoneNumber": decodedArgs.phoneNumber,
               "clientName": decodedArgs.clientName,
@@ -100,25 +100,25 @@ exports.execute = function (req, res) {
                 "client_name": decodedArgs.clientName
               }
             };
-
+ 
             // Agrega `Enlace` en params solo si tiene un valor
               if (decodedArgs.Enlace) {
                 data.params.Enlace = decodedArgs.Enlace;
             }
-
-            data: JSON.stringify(data)  //Mur
-
+ 
+            data: JSON.stringify(data)  //Cambios
+ 
             let config = {
               method: 'post',
               maxBodyLength: Infinity,
               url: 'https://us-central1-atomchat-io.cloudfunctions.net/templates',
-              headers: { 
-                'Content-Type': 'application/json', 
+              headers: {
+                'Content-Type': 'application/json',
                 'Authorization': 'Bearer 5b12b8d9-20b1-1b49-762d-5ca346e02445'
               },
               data : data
             };
-            
+           
             axios.request(config)
             .then((response) => {
               console.log(JSON.stringify(response.data));
@@ -134,8 +134,8 @@ exports.execute = function (req, res) {
         }
     });
 };
-
-
+ 
+ 
 /*
  * POST Handler for /publish/ route of Activity.
  */
@@ -145,7 +145,7 @@ exports.publish = function (req, res) {
     logData(req);
     res.send(200, 'Publish');
 };
-
+ 
 /*
  * POST Handler for /validate/ route of Activity.
  */
