@@ -1,32 +1,140 @@
-'use strict';
-
-// Deps
-var activity = require('./activity');
-
-/*
- * GET home page.
- */
-//console.log(req);
-exports.index = function(req, res){
-    if( !req.session.token ) {
-        console.log("Prueba App");
-        res.render( 'index', {
-            title: 'Unauthenticated',
-            errorMessage: 'This app may only be loaded via Salesforce Marketing Cloud',
-        });
-    } else {
-        res.render( 'index', {
-            title: 'Journey Builder Activity',
-            results: activity.logExecuteData,
-        });
-    }
-};
-
-exports.login = function( req, res ) {
-    console.log( 'req.body: ', req.body );
-    res.redirect( '/' );
-};
-
-exports.logout = function( req, res ) {
-    req.session.token = '';
-};
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="vendor/salesforce-lightning-design-system/styles/salesforce-lightning-design-system.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="//code.jquery.com/git/jquery-git.min.js"></script>
+    <script type="text/javascript" src="js/require.js"></script>
+    <script type="text/javascript">
+        (function () {
+            var config = {
+                baseUrl: 'js'
+            };
+ 
+            var dependencies = [
+                'customActivity'
+            ];
+ 
+            require(config, dependencies);
+        })();
+    </script>
+</head>
+ 
+<body>
+    <div id="step1" class="step">
+        <div class="slds-grid">
+ 
+            <main class="slds-col slds-size--1-of-3 slds-p-horizontal--small">
+              <h1>Bienvenido a la integración de Atom y Whatsapp</h1>
+            </main>
+            <label for="selectplant">Selecciona la plantilla para envío</label>
+            <select id="plantilla_what" class="form-select" aria-label="Default select example">
+                <option value="fh9PkqY6NCalP3RQb8cB" selected>Usos del App</option>
+                <option value="6b3p5Erdc7bNcmP9oWlJ">Beneficios del app</option>
+                <option value="xQADyLzOkArz6BFDQ7ST">10 Motivos</option>
+                <option value="f4TXC29Wb2LGZFmmJT1C">¿Sigues interesado?</option>
+                <option value="yngabeB4NnhIE0QuLwN3">Post venta</option>
+                <option value="RQBoYvpBBDdqx7kJMVqL">Purdy trabajo 1</option>
+                <option value="JC9B5iWr5v7woXD9YSmz">Purdy trabajo 2</option>
+                <option value="09SckrOTCx2EXCj83NaU">Takata</option>
+                <option value="SJ6B7P6ziWKBbwYoQuYf">Ventas</option>
+                <option value="0JvOsRUJxBhqb5b5Obax">G3I</option>
+                <option value="vocPXewJZ5IlMjO6CCCx">G9</option>
+                <option value="pFiBibxDbaz6Diam4WI8">P7</option>
+                <option value="kKhjZZa6VfMT5Bceyz8f">Subaru Purdy Go</option>
+                <option value="PjJvB0Fy9aJaFPWmZba2">Subaru Purdy centers</option>
+                <option value="h3etW6UFGBWBNsIzlLUq">Subaru Purdy en línea</option>
+                <option value="fmQa7MDzdWRmAvLRvXiF">Purdy Go Toyota</option>
+                <option value="rbokimuE2WwZFxs77MVJ">Purdy centers Toyota</option>
+                <option value="dKcxdssTT8625qfN0VIP">Purdy en línea Toyota</option>
+                <option value="USOGFVR6ut7G4N93kku9">Purdy Go VW</option>
+                <option value="m0be0SLqNj4RZoR2luWV">Purdy Centers VW</option>
+                <option value="Ez3lKVukHhuGIVBFap3y">Purdy en linea VW</option>
+                <option value="wVqJCv3X7TvZOh0uk6EP">Purdy Go Xpeng</option>
+                <option value="lxhtmG6DAbytlf0i2rfp">Purdy Centers Xpeng</option>
+                <option value="IOuEZSw60clKseIPF1nY">Purdy en linea Xpeng</option>
+                <option value="hgA4fJpffzngd5Iuljto">Purdy Go Ford</option>
+                <option value="pwmJduHMV2duUL4ZUc8x">Purdy Centers Ford</option>
+                <option value="CQWsS9Lz7cfimi5emFF9">Purdy en linea Ford</option>
+                <option value="witnhMVAWUimEYAI6ueF">Hino 300</option>
+                <option value="PN3earng5LeD0RbaOIJU">Hino 200</option>
+                <option value="bpmLU7YB1m49uXdClieD">Usados</option>
+                <option value="iS3viXFdZgcHtsM44gQC">VW</option>
+                <option value="f4lTwDFkvjCjQ65BkfZL">Xpeng</option>
+                <option value="1fhCymvpvHgWj2tA8a5Z">Ford</option>
+                <option value="hxPMnzJM1sKNiyMEOTwc">Subaru</option>
+                <option value="PuGZcxpgWovPfIPyompg">Expomovil</option>
+                <option value="INV7HCkelkvrk7neF7UR">Expomovil 6 meses</option>
+                <option value="PJO0jwmlWDBgIJZGtx88">G3i automatizado</option>
+                <option value="G9wUSnuqttEv7MGE5tes">Oferta proactiva 1</option>
+                <option value="ncXChbyzPA9JXdjE7Nar">Oferta proactiva 2</option>
+                <option value="Cmlz9SsKfnhB7QzhrxYT">Oferta proactiva 3</option>
+                <option value="gwE4bSoRca5gH4FNoWRz">Feria usados 1</option>
+                <option value="gwE4bSoRca5gH4FNoWRz">Feria usados 2</option>
+                <option value="tWaCPCV3C2AUUjttDgnq">Seguros 1</option>
+                <option value="9bWoM6OUGqbQ5YNRJF2Q">Seguros 2</option>
+                <option value="eL808sfSGlSjutuX8vfG">Seguros 3</option>
+                <option value="EGK79u0AOh9xmtSSe5n7">Seguros 4</option>
+                <option value="jkNmWH65M6BY828jBU64">Seguros 4</option>
+                <option value="WYeVJIcwaYjl6cRGpgcX">Seguros 5</option>
+                <option value="7ZdOtFqvY8iL0VptLWC6">Seguros 6</option>
+                <option value="s29r5UWimGzSI0f2NSlb">Seguros 7</option>
+                <option value="TL7Hngc8oYyRhSXKC4HX">Seguros 8</option>
+                <option value="wDSSSKrLDrRyTERNaKrl">Faw</option>
+                <option value="qVnJjSjeVNQ7Pq8St7iT">Camion Grande</option>
+                <option value="CSTndLcqnLMu1iKs3Y7R">Camion Mediano</option>
+                <option value="s9MCStIRSD1Zqe80x01H">Camion Pequeno</option>
+                <option value="w0Lk1X7Rc0wDvrlkNqhd">Citasinlavarcarro</option>
+                <option value="MhxoPSbG3VfQYLDr8FYj">Citalavandocarro</option>
+                <option value="LK3hRwH0ZAEtbguknu8c">Journey Faw - Meta leads T80</option>
+                <option value="ANhiyGCHS6aoeWdTNuRe">Journey Faw - Meta leads FA26</option>
+                <option value="SD3w0ldkSvOEPY6oI5JI">Higer_Pauta2026 H6</option>
+                <option value="QRfsmOXIONTUj7YDlxT5">Higer_Pauta2026 H5</option>
+                <option value="EDOPLn40mbHYLBDoYUHh">Higer_Pauta2026 H6 23 pax</option>
+                <option value="A6OSZ725D6o8jvHW5rtT">Higer_Pauta2026 h5 18 pax</option>
+                <option value="ZE3eASgjnir1mdHIX2PE">Higer_Pauta2026 V8 COACH</option>
+                <option value="c1amRI1PYcHWfPmHqtB6">Pruebas_Faw</option>
+                <option value="c1amRI1PYcHWfPmHqtB6">plantilla_faw</option>
+                <option value="c1amRI1PYcHWfPmHqtB6">Lead_Capture_Faw</option>
+ 
+ 
+              </select>
+              <label for="selectplant">Selecciona la extensión de datos envio</label>
+            <select id="plantilla_de" class="form-select" aria-label="Default select example">
+                <option value="OPORTUNIDAD_LEXUS_B2C" selected>OPORTUNIDAD_LEXUS_B2C</option>
+                <option value="LEADS_NUEVOS_B2C">LEADS_NUEVOS_B2C</option>
+                <option value="DATOS_PARA_PROBAR">DATOS_PARA_PROBAR</option>
+                <option value="DATOS_PARA_PMP">DATOS_PARA_PMP</option>
+                <option value="GP_Op_en_proceso_WA_1">DATOS_PARA_VENTAS</option>
+                <option value="LEADS XPENG 2024 _ XPENG Costa Rica 274053937">LEADS _XPENG_2024</option>
+                <option value="GP_Oportunidades_2024">Jorney_2025</option>
+                <option value="Hino Form SF _ Hino Costa Rica 285181589">FORM_HINOCR</option> 
+                <option value="Opp_EnProceso_WA_Feria">OPs expo</option>
+                <option value="Ops_UltimosSeisMeses">OPs_ULT_6M</option>
+                <option value="Journey_OfertaUnidadSeparada">Jorney_Oferta_Undidad_Separada</option>
+                <option value="Journey_OfertaProactiva">Jorney_Oferta_Proactiva</option>
+                <option value="Leads_G3I_2025 Xpeng">G3i automatizado</option>
+                <option value="Journey Feria Usados 1">Journey Feria Usados 1</option>
+                <option value="Journey Feria Usados 2">Journey Feria Usados 2</option>  
+                <option value="Extension Faw Meta">Entensión Faw</option>
+                <option value="Black Purdy Faw">Black Purdy Faw</option>   
+                <option value="Purdy_Notifications2">Purdy_Notifications2</option>
+                <option value="Journey_Faw_Meta_Leads">Extensión Faw</option>
+                <option value="Higer_Pauta2026">Extensión Higer</option>
+                <option value="Pruebas_Faw">Pruebas_Faw</option>
+                <option value="Faw_leads">datos_Faw</option>
+                <option value="Lead_Capture_Faw">Base_faw</option>
+                
+              </select>           
+              
+        </div>
+ 
+    </div>
+</body>
+ 
+</html>
