@@ -274,6 +274,16 @@ define([
     }];
     }
 
+                   if (templateDE == 'Lead_Capture_Faw') {
+    payload['arguments'].execute.inArguments = [{
+        "tokens": authTokens,
+        "phoneNumber": "{{Contact.Attribute.Lead_Capture_Faws2.phone_number}}",
+        "emailAddress": "{{InteractionDefaults.email}}",
+        "clientName": "{{Contact.Attribute.Lead_Capture_Faws2.full_name}}",
+        "templateId": templateId
+    }];
+     }
+
        payload['metaData'].isConfigured = true;
         console.log(payload);
         connection.trigger('updateActivity', payload);
