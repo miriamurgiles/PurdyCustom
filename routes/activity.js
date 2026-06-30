@@ -90,34 +90,53 @@ exports.execute = function (req, res) {
             var decodedArgs = decoded.inArguments[0];
             console.log(decodedArgs);
             const axios = require('axios');
-            let data = { //Cambios
-              "templateId": decodedArgs.templateId,
-              "phoneNumber": decodedArgs.phoneNumber,
-              "clientName": decodedArgs.clientName,
-              "groupName": "Purdy Citas",
-              "assign": false,
-              "params": {
-                "client_name": decodedArgs.clientName
-              }
-            };
+            
+            let config;
 
-            // Agrega `Enlace` en params solo si tiene un valor
-              if (decodedArgs.Enlace) {
-                data.params.Enlace = decodedArgs.Enlace;
+            if (decodedArgs.useBotWebhook === true) {
+                let botData = {
+                    "first_name": decodedArgs.clientName,
+                    "phone": decodedArgs.phoneNumber
+                };
+
+                config = {
+                    method: 'post',
+                    maxBodyLength: Infinity,
+                    url: 'https://us-central1-atomchat-io.cloudfunctions.net/webhook/33e-f6f-421-8d2-81b',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer d9fc86bc-aaeb-168e-243f-578de7e5835c'
+                    },
+                    data: botData
+                };
+
+            } else {
+                let data = {
+                    "templateId": decodedArgs.templateId,
+                    "phoneNumber": decodedArgs.phoneNumber,
+                    "clientName": decodedArgs.clientName,
+                    "groupName": "Purdy Citas",
+                    "assign": false,
+                    "params": {
+                        "client_name": decodedArgs.clientName
+                    }
+                };
+
+                if (decodedArgs.Enlace) {
+                    data.params.Enlace = decodedArgs.Enlace;
+                }
+
+                config = {
+                    method: 'post',
+                    maxBodyLength: Infinity,
+                    url: 'https://us-central1-atomchat-io.cloudfunctions.net/templates',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer 5b12b8d9-20b1-1b49-762d-5ca346e02445'
+                    },
+                    data: data
+                };
             }
-
-            data: JSON.stringify(data)  //Cambios
-
-            let config = {
-              method: 'post',
-              maxBodyLength: Infinity,
-              url: 'https://us-central1-atomchat-io.cloudfunctions.net/templates',
-              headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer 5b12b8d9-20b1-1b49-762d-5ca346e02445'
-              },
-              data : data
-            };
            
             axios.request(config)
             .then((response) => {

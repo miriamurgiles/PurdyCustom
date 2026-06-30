@@ -283,16 +283,27 @@ define([
         "templateId": templateId
     }];
      }
-                if (templateDE == 'Elevate') {
-    payload['arguments'].execute.inArguments = [{
-        "tokens": authTokens,
-        "phoneNumber": "{{Contact.Attribute.Elevate.phone_number}}",
-        "emailAddress": "{{InteractionDefaults.email}}",
-        "clientName": "{{Contact.Attribute.Elevate.full_name}}",
-        "templateId": templateId
-    }];
+        if (templateDE == 'Elevate') {
+            payload['arguments'].execute.inArguments = [{
+            "tokens": authTokens,
+            "phoneNumber": "{{Contact.Attribute.Elevate.phone_number}}",
+            "emailAddress": "{{InteractionDefaults.email}}",
+            "clientName": "{{Contact.Attribute.Elevate.full_name}}",
+            "templateId": templateId
+            }];
 
      }
+
+     if (templateDE == 'NUEVA_DE_BOT') {
+        payload['arguments'].execute.inArguments = [{
+            "tokens": authTokens,
+            "phoneNumber": "{{Contact.Attribute.NUEVA_DE_BOT.phone}}",
+            "emailAddress": "{{InteractionDefaults.email}}",
+            "clientName": "{{Contact.Attribute.NUEVA_DE_BOT.first_name}}",
+            "templateId": templateId,
+            "useBotWebhook": true
+        }];
+    }
         payload['metaData'].isConfigured = true;
         console.log(payload);
         connection.trigger('updateActivity', payload);
