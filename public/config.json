@@ -1,5 +1,5 @@
 {
-  "key": "265834cc-2877-44e4-9268-69c7673f4bf8",
+  "key": "4f75ab38-936f-48bf-b311-17d7910b0edf",
   "workflowApiVersion": "1.1",
   "metaData": {
       "icon": "images/icon.png",
@@ -32,7 +32,7 @@
           }
          ],
         "outArguments": [],
-        "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/journeybuilder/execute",
+        "url": "https://sndwhatsappmsg.grupopurdy.com/journeybuilder/execute",
          "verb": "POST",
           "body": "",
           "header": "",
@@ -42,24 +42,24 @@
       }
   },
   "configurationArguments": {
-      "applicationExtensionKey": "265834cc-2877-44e4-9268-69c7673f4bf8",
+      "applicationExtensionKey": "4f75ab38-936f-48bf-b311-17d7910b0edf",
     "save": {
-      "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/journeybuilder/save",
+      "url": "https://sndwhatsappmsg.grupopurdy.com/journeybuilder/save",
         "verb": "POST",
       "useJwt": true
      },
      "publish": {
-      "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/journeybuilder/publish",
+      "url": "https://sndwhatsappmsg.grupopurdy.com/journeybuilder/publish",
          "verb": "POST",
       "useJwt": true
      },
     "stop": {
-      "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/journeybuilder/stop",
+      "url": "https://sndwhatsappmsg.grupopurdy.com/journeybuilder/stop",
          "verb": "POST",
       "useJwt": true
     },
     "validate": {
-      "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/journeybuilder/validate",
+      "url": "https://sndwhatsappmsg.grupopurdy.com/journeybuilder/validate",
       "verb": "POST",
       "useJwt": true
     }
