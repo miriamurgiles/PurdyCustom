@@ -263,18 +263,18 @@ define([
         "clientName": "{{Contact.Attribute.Higer_leads_form.full_name}}",
         "templateId": templateId
     }];
-    }
-  if (templateDE == 'Pruebas Faw') {
+     }
+    
+  if (templateDE == 'Pruebas_Faw') {
     payload['arguments'].execute.inArguments = [{
-        "tokens": authTokens, 
-        "phoneNumber": "{{Contact.Attribute.Pruebas_Faw.phone_number}}", 
-        "emailAddress": "{{InteractionDefaults.Email}}", 
+        "tokens": authTokens,
+        "phoneNumber": "{{Contact.Attribute.Pruebas_Faw.phone_number}}",
+        "emailAddress": "{{InteractionDefaults.email}}",
         "clientName": "{{Contact.Attribute.Pruebas_Faw.full_name}}",
         "templateId": templateId
     }];
-    }
-
-                   if (templateDE == 'Lead_Capture_Faw') {
+     }
+           if (templateDE == 'Lead_Capture_Faws2') {
     payload['arguments'].execute.inArguments = [{
         "tokens": authTokens,
         "phoneNumber": "{{Contact.Attribute.Lead_Capture_Faws2.phone_number}}",
@@ -283,8 +283,17 @@ define([
         "templateId": templateId
     }];
      }
+                if (templateDE == 'Elevate') {
+    payload['arguments'].execute.inArguments = [{
+        "tokens": authTokens,
+        "phoneNumber": "{{Contact.Attribute.Elevate.phone_number}}",
+        "emailAddress": "{{InteractionDefaults.email}}",
+        "clientName": "{{Contact.Attribute.Elevate.full_name}}",
+        "templateId": templateId
+    }];
 
-       payload['metaData'].isConfigured = true;
+     }
+        payload['metaData'].isConfigured = true;
         console.log(payload);
         connection.trigger('updateActivity', payload);
     }
