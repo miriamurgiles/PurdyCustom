@@ -32,7 +32,7 @@
           }
          ],
         "outArguments": [],
-        "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/execute",
+        "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/journeybuilder/execute",
          "verb": "POST",
           "body": "",
           "header": "",
@@ -44,22 +44,22 @@
   "configurationArguments": {
       "applicationExtensionKey": "4f75ab38-936f-48bf-b311-17d7910b0edf",
     "save": {
-      "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/save",
+      "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/journeybuilder/save",
         "verb": "POST",
       "useJwt": true
      },
      "publish": {
-      "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/publish",
+      "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/journeybuilder/publish",
          "verb": "POST",
       "useJwt": true
      },
     "stop": {
-      "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/stop",
+      "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/journeybuilder/stop",
          "verb": "POST",
       "useJwt": true
     },
     "validate": {
-      "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/validate",
+      "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/journeybuilder/validate",
       "verb": "POST",
       "useJwt": true
     }
