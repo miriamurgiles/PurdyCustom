@@ -78,9 +78,18 @@ exports.execute = function (req, res) {
 
         // verification error -> unauthorized request
         if (err) {
+            /*
             console.error(err);
             console.error(process.env.jwtSecret);
-            console.error(req.body.inArguments)
+            console.error(req.body.inArguments)*/
+
+            //log
+            console.error('================ JWT ERROR ================');
+            console.error('Error JWT:', err);
+            console.error('Existe jwtSecret:', !!process.env.jwtSecret);
+            console.error('jwtSecret length:', process.env.jwtSecret ? process.env.jwtSecret.length : 0);
+            console.error('Body recibido:', JSON.stringify(req.body));
+            console.error('===========================================');
             return res.status(401).end();
         }
 
