@@ -89,15 +89,28 @@ exports.execute = function (req, res) {
             // decoded in arguments
             var decodedArgs = decoded.inArguments[0];
             console.log(decodedArgs);
+
+            //log
+            console.log('================ EXECUTE CUSTOM ACTIVITY ================');
+            console.log('decodedArgs:', JSON.stringify(decodedArgs, null, 2));
+            console.log('templateId:', decodedArgs.templateId);
+            console.log('phoneNumber:', decodedArgs.phoneNumber);
+            console.log('clientName:', decodedArgs.clientName);
+            console.log('useBotWebhook:', decodedArgs.useBotWebhook);
+            console.log('=========================================================');
             const axios = require('axios');
             
             let config;
 
             if (decodedArgs.useBotWebhook === true) {
+                console.log('>>> Entró al flujo BOT WEBHOOK');
                 let botData = {
                     "first_name": decodedArgs.clientName,
                     "phone": decodedArgs.phoneNumber
                 };
+
+                //log
+                console.log('Payload BOT:', JSON.stringify(botData, null, 2));
 
                 config = {
                     method: 'post',
@@ -137,6 +150,11 @@ exports.execute = function (req, res) {
                     data: data
                 };
             }
+
+            //log
+            console.log('URL destino:', config.url);
+            console.log('Headers:', JSON.stringify(config.headers, null, 2));
+            console.log('Payload final:', JSON.stringify(config.data, null, 2));
            
             axios.request(config)
             .then((response) => {
@@ -144,6 +162,16 @@ exports.execute = function (req, res) {
             })
             .catch((error) => {
               console.log(error);
+
+               //log 
+              if (error.response) {
+                    console.error('Status:', error.response.status);
+                    console.error('Data:', JSON.stringify(error.response.data));
+                } else {
+                    console.error(error.message);
+                }  
+
+
             });
             logData(req);
             res.send(200, 'Execute');
