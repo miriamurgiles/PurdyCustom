@@ -46,7 +46,7 @@
     "save": {
       "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/journeybuilder/save",
         "verb": "POST",
-      "useJwt": true
+      "useJwt": false
      },
      "publish": {
       "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/journeybuilder/publish",
@@ -61,7 +61,7 @@
     "validate": {
       "url": "https://miriam-desarrollo-wa-7814f5dea421.herokuapp.com/journeybuilder/validate",
       "verb": "POST",
-      "useJwt": true
+      "useJwt": false
     }
   },
   "wizardSteps": [
