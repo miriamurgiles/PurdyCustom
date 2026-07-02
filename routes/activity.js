@@ -79,10 +79,14 @@ exports.execute = function (req, res) {
     // Si Heroku recibe los datos como Buffer, los convertimos a String.
     // Si Azure los recibe directamente como String, se mantienen igual.
     let jwtBody = req.body;
-    if (Buffer.isBuffer(req.body)) {
+
+    // Forzar conversión si Express/Heroku lo parsearon como un objeto Buffer serializado o nativo
+    if (req.body && req.body.type === 'Buffer' && Array.isArray(req.body.data)) {
+        jwtBody = Buffer.from(req.body.data).toString('utf8');
+    } else if (Buffer.isBuffer(req.body)) {
         jwtBody = req.body.toString('utf8');
     }
-    // === FIN DEL CAMBIO ===
+    // === FIN DEL BLOQUE ===
 
     // example on how to decode JWT
     
@@ -93,17 +97,13 @@ exports.execute = function (req, res) {
     */
         // verification error -> unauthorized request
         if (err) {
-            /*
-            console.error(err);
-            console.error(process.env.jwtSecret);
-            console.error(req.body.inArguments)*/
-
             //log
             console.error('================ JWT ERROR ================');
-            console.error('Error JWT:', err);
+            console.error('Error JWT:', err.message || err);
             console.error('Existe jwtSecret:', !!process.env.jwtSecret);
             console.error('jwtSecret length:', process.env.jwtSecret ? process.env.jwtSecret.length : 0);
-            console.error('Body recibido:', JSON.stringify(req.body));
+            // CAMBIO AQUÍ: Imprimir el string procesado para auditar la cadena exacta en Heroku
+            console.error('Texto JWT procesado:', jwtBody); 
             console.error('===========================================');
             return res.status(401).end();
         }
